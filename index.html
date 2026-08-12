@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rottweiler Vonhouse - odgajivačnica rotvajlera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #1B1B1B;
+    --bg: #F7F4F0;
+    --bg-alt: #EFEAE3;
+    --accent: #8B2E2E;
+    --accent-dark: #6E2323;
+    --border: #DDD6CC;
+    --white: #FFFFFF;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--dark);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .wrap {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-size: 36px;
+    max-width: 600px;
+  }
+
+  .section-sub {
+    max-width: 65ch;
+    font-size: 16px;
+    color: #4a4a4a;
+    margin-top: 16px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-dark);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--dark);
+    border: 1px solid var(--dark);
+  }
+
+  .btn-outline:hover {
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  /* NAVBAR */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 78px;
+  }
+
+  .logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-links a.link {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .nav-links a.link:hover {
+    color: var(--accent);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--dark);
+  }
+
+  @media (max-width: 991px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 78px;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding-top: 12px;
+      padding-bottom: 24px;
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links a.link {
+      width: 100%;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      padding-left: 24px;
+      padding-right: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links .btn {
+      margin-top: 16px;
+      margin-left: 24px;
+    }
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    color: var(--white);
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero h1 {
+    color: var(--white);
+    font-size: 54px;
+    max-width: 560px;
+  }
+
+  .hero p.sub {
+    color: #C9C4BC;
+    font-size: 18px;
+    max-width: 48ch;
+    margin-top: 22px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .hero .btn-outline {
+    border-color: #6b6b6b;
+    color: var(--white);
+  }
+
+  .hero .btn-outline:hover {
+    background: var(--white);
+    color: var(--dark);
+  }
+
+  .placeholder-img {
+    background: #3a3a3a;
+    color: #ADA9A2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px dashed #565656;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 340px;
+    border-radius: 8px;
+  }
+
+  .placeholder-img.light {
+    background: #E4DFD7;
+    color: #8a8478;
+    border: 1px dashed #C6BFB2;
+  }
+
+  /* O NAMA */
+  .about .wrap {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about .placeholder-img.light {
+    min-height: 380px;
+  }
+
+  .about-text p {
+    margin-top: 18px;
+    max-width: 60ch;
+    color: #333;
+  }
+
+  /* STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+  }
+
+  .stat-num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: #555;
+    margin-top: 6px;
+  }
+
+  /* RODITELJI */
+  .parents-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .parent-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 28px;
+    padding-right: 28px;
+    background: var(--white);
+  }
+
+  .parent-card .placeholder-img {
+    min-height: 260px;
+    margin-bottom: 24px;
+  }
+
+  .parent-card h3 {
+    font-size: 22px;
+  }
+
+  .parent-role {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .parent-facts {
+    list-style: none;
+    padding: 0;
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 14px;
+    color: #444;
+  }
+
+  .parent-facts li strong {
+    display: block;
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  .parent-desc {
+    margin-top: 18px;
+    font-size: 14px;
+    color: #444;
+    max-width: 55ch;
+  }
+
+  /* STENCI */
+  .puppies-box {
+    margin-top: 48px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--white);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .puppies-info h3 {
+    font-size: 26px;
+  }
+
+  .puppy-facts {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    color: #333;
+  }
+
+  .puppy-facts li {
+    padding-left: 18px;
+    border-left: 2px solid var(--accent);
+  }
+
+  .puppies-info .btn {
+    margin-top: 26px;
+  }
+
+  .puppies-box .placeholder-img {
+    min-height: 260px;
+  }
+
+  /* ZASTO MI */
+  .why-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .why-item {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .why-item svg {
+    width: 32px;
+    height: 32px;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
+  .why-item h4 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .why-item p {
+    font-size: 14px;
+    color: #4a4a4a;
+    max-width: 30ch;
+  }
+
+  /* PROCES */
+  .process-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+
+  .process-step {
+    position: relative;
+  }
+
+  .process-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--bg-alt);
+    -webkit-text-stroke: 1.5px var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .process-step h4 {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .process-step p {
+    font-size: 14px;
+    color: #4a4a4a;
+  }
+
+  /* KONTAKT */
+  .contact {
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  .contact .section-title {
+    color: var(--white);
+  }
+
+  .contact .eyebrow {
+    color: #C9986B;
+  }
+
+  .contact-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+  }
+
+  .contact-info-item {
+    border-top: 1px solid #3a3a3a;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .contact-info-item:first-child {
+    border-top: none;
+  }
+
+  .contact-info-item span.label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ADA9A2;
+    margin-bottom: 6px;
+  }
+
+  .contact-info-item span.value {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  form.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-form label {
+    font-size: 13px;
+    color: #C9C4BC;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background: #2A2A2A;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .contact-form .btn {
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid #333;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #ADA9A2;
+    font-size: 13px;
+  }
+
+  .footer-grid .logo {
+    color: var(--white);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a:hover {
+    color: var(--white);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero .wrap,
+    .about .wrap,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero .wrap {
+      gap: 40px;
+    }
+
+    .about .wrap {
+      gap: 32px;
+    }
+
+    .stats-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .parents-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .puppies-box {
+      grid-template-columns: 1fr;
+    }
+
+    .why-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 38px;
+    }
+
+    .section-title {
+      font-size: 28px;
+    }
+
+    .stats-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="wrap">
+      <a href="#" class="logo">Rottweiler <span>Vonhouse</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a class="link" href="#o-nama">O nama</a>
+        <a class="link" href="#roditelji">Roditelji</a>
+        <a class="link" href="#stenci">Štenci</a>
+        <a class="link" href="#proces">Proces</a>
+        <a class="link" href="#kontakt">Kontakt</a>
+        <a class="btn btn-primary" href="#kontakt">Rezerviši štene</a>
+      </nav>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Rotvajler koji čuva ono što ti je važno</h1>
+        <p class="sub">Odgajivačnica Vonhouse radi sa rotvajlerima od 2015. godine. Svako štene ima rodovnik, pregledane kukove i roditelje koje možeš da upoznaš pre nego što se odlučiš.</p>
+        <div class="hero-ctas">
+          <a href="#kontakt" class="btn btn-primary">Rezerviši štene</a>
+          <a href="#roditelji" class="btn btn-outline">Pogledaj roditelje</a>
+        </div>
+      </div>
+      <div class="placeholder-img" role="img" aria-label="Placeholder za fotografiju odraslog rotvajlera">
+        FOTOGRAFIJA ODRASLOG ROTVAJLERA
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="o-nama">
+    <div class="wrap">
+      <div class="placeholder-img light" role="img" aria-label="Placeholder za fotografiju štenaca sa majkom">
+        FOTOGRAFIJA ŠTENACA SA MAJKOM
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">O odgajivačnici</span>
+        <h2 class="section-title">Deset godina rada sa jednom rasom</h2>
+        <p>Počeli smo 2015. sa jednom kučkom i jednim ciljem - da odgajamo rotvajlere kakvi treba da budu. Stabilnog temperamenta, zdravih kukova, spremne da čuvaju porodicu bez straha od sveta.</p>
+        <p>Do danas smo odgojili 12 pomета. Svaki pomet prijavljujemo kod Kinološkog saveza Srbije i svako štene ide sa rodovnikom.</p>
+        <p>Psi žive u kući, ne u boksu iza dvorišta. Štenci prve nedelje provode okruženi ljudima, decom i drugim psima, pa znaju šta je normalan život pre nego što odu u novi dom.</p>
+
+        <div class="stats-row">
+          <div>
+            <div class="stat-num">2015.</div>
+            <div class="stat-label">godina osnivanja</div>
+          </div>
+          <div>
+            <div class="stat-num">12</div>
+            <div class="stat-label">odgojenih pometa</div>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">štenaca sa papirima</div>
+          </div>
+          <div>
+            <div class="stat-num">2</div>
+            <div class="stat-label">psa za rasplod u kući</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roditelji">
+    <div class="wrap">
+      <span class="eyebrow">Roditelji</span>
+      <h2 class="section-title">Psi koje ćeš lično upoznati</h2>
+      <p class="section-sub">Oba roditelja žive sa nama u kući. Kada dođeš u posetu, vidiš tačno od koga potiče štene koje planiraš da uzmeš.</p>
+
+      <div class="parents-grid">
+        <div class="parent-card">
+          <div class="placeholder-img light" role="img" aria-label="Placeholder za fotografiju mužjaka Rex von House">
+            FOTOGRAFIJA - REX VON HOUSE
+          </div>
+          <h3>Rex von House</h3>
+          <span class="parent-role">Mužjak, rođen 2019.</span>
+          <ul class="parent-facts">
+            <li><strong>68 cm</strong>visina u grebenu</li>
+            <li><strong>58 kg</strong>telesna masa</li>
+            <li><strong>HD-A</strong>status kukova</li>
+            <li><strong>ED-0</strong>status lakata</li>
+          </ul>
+          <p class="parent-desc">Linija iz Nemačke, otac Bruno von Stahl. Mirotvoran u kući, glasan i odlučan kad oseti da nešto nije u redu na kapiji.</p>
+        </div>
+
+        <div class="parent-card">
+          <div class="placeholder-img light" role="img" aria-label="Placeholder za fotografiju ženke Ema von House">
+            FOTOGRAFIJA - EMA VON HOUSE
+          </div>
+          <h3>Ema von House</h3>
+          <span class="parent-role">Ženka, rođena 2020.</span>
+          <ul class="parent-facts">
+            <li><strong>62 cm</strong>visina u grebenu</li>
+            <li><strong>48 kg</strong>telesna masa</li>
+            <li><strong>HD-A</strong>status kukova</li>
+            <li><strong>ED-0</strong>status lakata</li>
+          </ul>
+          <p class="parent-desc">Strpljiva prema deci, oprezna prema strancima. Njeni štenci do sada su najbrže učili osnovne komande.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stenci" style="background: var(--bg-alt);">
+    <div class="wrap">
+      <span class="eyebrow">Trenutni pomet</span>
+      <h2 class="section-title">Štenci na raspolaganju</h2>
+      <p class="section-sub">Pomet od Rex-a i Eme, rođen 3. avgusta. Šest štenaca, spremni da napuste nas za 8 nedelja od rođenja.</p>
+
+      <div class="puppies-box">
+        <div class="placeholder-img" role="img" aria-label="Placeholder za fotografiju trenutnog pometa štenaca">
+          FOTOGRAFIJA POMETA
+        </div>
+        <div class="puppies-info">
+          <h3>Pomet R - avgust 2024.</h3>
+          <ul class="puppy-facts">
+            <li>4 mužjaka, 2 ženke</li>
+            <li>Prva vakcina i čipovanje pri preuzimanju</li>
+            <li>Rodovnik Kinološkog saveza Srbije</li>
+            <li>Spremni za predaju od 28. septembra</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-primary">Pitaj za štene</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="zasto-mi">
+    <div class="wrap">
+      <span class="eyebrow">Zašto mi</span>
+      <h2 class="section-title">Zašto ljudi biraju Vonhouse</h2>
+      <p class="section-sub">Nema iznenađenja kad štene stigne kod tebe. Sve što treba da znaš, znaš pre nego što daš kapару.</p>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>
+          <h4>Pregled kukova i lakata</h4>
+          <p>Oba roditelja pregledana su kod veterinara ortopeda pre parenja. Papire za HD i ED status možeš da vidiš lično.</p>
+        </div>
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 6l2 14h12l2-14M9 6V4h6v2"/></svg>
+          <h4>Ugovor pri kupovini</h4>
+          <p>Potpisujemo ugovor sa svakim kupcem. Piše šta dobijaš, kada, i šta radim ako se nešto ne slaže sa dogovorom.</p>
+        </div>
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 8.5c0 4-4.5 7-10 11.5C6.5 15.5 2 12.5 2 8.5 2 5.5 4.5 3 7.5 3c1.7 0 3.2.8 4.5 2.2C13.3 3.8 14.8 3 16.5 3 19.5 3 22 5.5 22 8.5z"/></svg>
+          <h4>Podrška posle kupovine</h4>
+          <p>Javi se i posle godinu dana ako imaš pitanje oko ishrane, dresure ili ponašanja. Odgovaram.</p>
+        </div>
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg>
+          <h4>Socijalizacija od prvog dana</h4>
+          <p>Štenci upoznaju decu, buku, druge životinje i vožnju autom pre nego što napuste nas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proces" style="background: var(--bg-alt);">
+    <div class="wrap">
+      <span class="eyebrow">Proces</span>
+      <h2 class="section-title">Kako izgleda rezervacija</h2>
+      <p class="section-sub">Četiri koraka od poruke do štenca u tvom autu.</p>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <h4>Pišeš ili zoveš</h4>
+          <p>Kažeš šta tražiš - mužjak ili ženka, kad ti odgovara termin.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <h4>Dolaziš u posetu</h4>
+          <p>Vidiš roditelje uživo i uslove u kojima žive štenci.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <h4>Rezervišeš štene</h4>
+          <p>Dogovaramo kaparu i datum kad štene ide sa tobom.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <h4>Vodiš štene kući</h4>
+          <p>Sa rodovnikom, mikročipom i prvom vakcinom u knjižici.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="wrap">
+      <span class="eyebrow">Kontakt</span>
+      <h2 class="section-title">Javi se</h2>
+      <p class="section-sub" style="color:#C9C4BC;">Piši, zovi ili dođi na kafu do nas u Erdeviku. Odgovaram isti dan.</p>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-item">
+            <span class="label">Telefon</span>
+            <span class="value">064 123 45 67</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="label">Email</span>
+            <span class="value">upiti@vonhouse-rottweiler.rs</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="label">Lokacija</span>
+            <span class="value">Erdevik, Srem</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="label">Radno vreme za posete</span>
+            <span class="value">Sreda - Nedelja, 10h - 18h</span>
+          </div>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <div>
+            <label for="ime">Ime i prezime</label>
+            <input type="text" id="ime" name="ime" placeholder="Kako se zoveš">
+          </div>
+          <div>
+            <label for="kontakt-info">Telefon ili email</label>
+            <input type="text" id="kontakt-info" name="kontakt-info" placeholder="Gde da te kontaktiram">
+          </div>
+          <div>
+            <label for="poruka">Poruka</label>
+            <textarea id="poruka" name="poruka" placeholder="Napiši šta te interesuje - mužjak, ženka, kad bi mogao/mogla da dođeš u posetu"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Pošalji upit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <a href="#" class="logo">Rottweiler Vonhouse</a>
+      <nav class="footer-links">
+        <a href="#o-nama">O nama</a>
+        <a href="#roditelji">Roditelji</a>
+        <a href="#stenci">Štenci</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <span>© 2024 Rottweiler Vonhouse, Erdevik</span>
+    </div>
+  </footer>
+
+  <script>
+    var hamburgerBtn = document.getElementById('hamburgerBtn');
+    var navLinks = document.getElementById('navLinks');
+
+    hamburgerBtn.addEventListener('click', function () {
+      var isOpen = navLinks.classList.toggle('open');
+      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    var navAnchors = navLinks.querySelectorAll('a');
+    navAnchors.forEach(function (a) {
+      a.addEventListener('click', function () {
+        navLinks.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
