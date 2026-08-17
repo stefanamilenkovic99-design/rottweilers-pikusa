@@ -6,21 +6,21 @@
 <title>Rottweiler Vonhouse - odgajivačnica rotvajlera</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #212121;
-    --ink-deep: #1A1A1A;
-    --panel: #272522;
-    --brown: #38240D;
-    --brown-soft: #4A3115;
-    --tan: #B79A73;
-    --text: #CFC9C0;
-    --muted: #8B857B;
-    --ghost: #6E6960;
-    --line: #363330;
-    --line-soft: #47423B;
-    --white: #F2EEE8;
+    --ink: #131313;
+    --ink-deep: #0E0E0E;
+    --panel: #1B1A19;
+    --brown: #241611;
+    --brown-soft: #38221A;
+    --tan: #C0A480;
+    --text: #DDD8D1;
+    --muted: #A49D94;
+    --ghost: #56524C;
+    --line: #2B2A28;
+    --line-soft: #3C3934;
+    --white: #F4F1EC;
   }
 
   * {
@@ -44,7 +44,7 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     color: var(--white);
     margin: 0;
     line-height: 1.15;
@@ -91,7 +91,7 @@
 
   .section-title {
     font-size: 40px;
-    max-width: 16ch;
+    letter-spacing: -0.01em;
   }
 
   .section-sub {
@@ -101,7 +101,7 @@
   }
 
   .vtitle {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 44px;
     line-height: 1;
@@ -135,11 +135,12 @@
   .btn-primary {
     background: var(--brown);
     color: var(--white);
-    border-color: var(--brown-soft);
+    border-color: #4C3024;
   }
 
   .btn-primary:hover {
     background: var(--brown-soft);
+    border-color: #6A4433;
   }
 
   .more {
@@ -180,15 +181,16 @@
   }
 
   .logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 20px;
     color: var(--white);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
   }
 
   .logo span {
-    color: var(--tan);
+    color: var(--white);
   }
 
   .nav-panel {
@@ -227,7 +229,7 @@
   }
 
   .nav-call .num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 22px;
     color: var(--white);
@@ -322,9 +324,9 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    font-size: clamp(56px, 17vw, 230px);
+    font-size: clamp(48px, 14.5vw, 200px);
     line-height: 0.85;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.045em;
     color: var(--ghost);
     white-space: nowrap;
     pointer-events: none;
@@ -346,7 +348,7 @@
   }
 
   .hero-kicker {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 34px;
     line-height: 1.15;
@@ -371,7 +373,7 @@
 
   /* PLACEHOLDERI */
   .ph {
-    background: #2E2B27;
+    background: #1F1E1C;
     border: 1px dashed var(--line-soft);
     border-radius: 8px;
     color: var(--muted);
@@ -407,8 +409,8 @@
   }
 
   .about-panel p {
-    color: var(--muted);
-    font-size: 14px;
+    color: var(--text);
+    font-size: 15px;
     max-width: 55ch;
   }
 
@@ -430,7 +432,7 @@
   }
 
   .stat-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 38px;
     color: var(--tan);
@@ -498,7 +500,7 @@
 
   .parent-card {
     background: var(--panel);
-    border: 1px solid var(--line);
+    border: 1px solid var(--line-soft);
     border-radius: 8px;
     padding-top: 28px;
     padding-bottom: 28px;
@@ -539,19 +541,21 @@
 
   .parent-facts li strong {
     display: block;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 22px;
     letter-spacing: 0;
     text-transform: none;
     color: var(--white);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
   }
 
   .parent-desc {
-    margin-top: 22px;
-    font-size: 14px;
-    color: var(--muted);
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line-soft);
+    font-size: 15px;
+    color: var(--text);
     max-width: 50ch;
   }
 
@@ -559,7 +563,7 @@
   .litter-box {
     margin-top: 52px;
     background: var(--panel);
-    border: 1px solid var(--line);
+    border: 1px solid var(--line-soft);
     border-radius: 8px;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -585,9 +589,9 @@
     margin-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--muted);
+    gap: 14px;
+    font-size: 15px;
+    color: var(--text);
   }
 
   .litter-facts li {
@@ -612,7 +616,7 @@
   }
 
   .process .vtitle {
-    color: #7A5C34;
+    color: #5C4034;
   }
 
   .process-steps {
@@ -622,7 +626,7 @@
   }
 
   .step-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 34px;
     color: var(--white);
@@ -636,21 +640,21 @@
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #E2D4BF;
+    color: var(--tan);
     line-height: 1.5;
     margin-bottom: 10px;
   }
 
   .step p {
     font-size: 14px;
-    color: #B39D80;
+    color: #C0B2A8;
     max-width: 32ch;
   }
 
   .process .ph {
-    background: #46300F;
-    border-color: #6B4A21;
-    color: #A08558;
+    background: #2E1D17;
+    border-color: #4C3225;
+    color: #9C8579;
     min-height: 320px;
   }
 
@@ -683,7 +687,7 @@
   }
 
   .info-item .value {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 21px;
     color: var(--white);
@@ -772,6 +776,12 @@
   }
 
   .footer-col a:hover {
+    color: var(--white);
+  }
+
+  .footer-col a.logo,
+  .footer-col a.logo span {
+    font-size: 20px;
     color: var(--white);
   }
 
@@ -964,7 +974,7 @@
 
   <header class="navbar">
     <div class="wrap">
-      <a href="#" class="logo">von<span>house</span></a>
+      <a href="#" class="logo">vonhouse <span>pikusa</span></a>
 
       <div class="nav-panel" id="navPanel">
         <nav class="nav-links">
@@ -1239,7 +1249,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="#" class="logo">von<span>house</span></a>
+          <a href="#" class="logo">vonhouse <span>pikusa</span></a>
         </div>
 
         <div class="footer-col">
