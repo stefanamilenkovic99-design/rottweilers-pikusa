@@ -371,8 +371,25 @@
     }
   }
 
-  /* PLACEHOLDERI */
+  /* SLIKE I PLACEHOLDERI */
+  .ph img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ph.has-photo {
+    border-style: solid;
+    border-color: var(--line);
+    background: none;
+  }
+
   .ph {
+    position: relative;
+    overflow: hidden;
     background: #1F1E1C;
     border: 1px dashed var(--line-soft);
     border-radius: 8px;
@@ -1002,7 +1019,8 @@
     <div class="wrap">
       <div class="hero-stage">
         <h1 class="hero-word">rotvajler</h1>
-        <div class="ph hero-photo" role="img" aria-label="Mesto za fotografiju odraslog rotvajlera u punom stavu">
+        <div class="ph hero-photo">
+          <img src="assets/hero-rotvajler.jpg" alt="Odrastao rotvajler stoji na povocu, u punom stavu">
           FOTOGRAFIJA ODRASLOG ROTVAJLERA
         </div>
       </div>
@@ -1033,7 +1051,8 @@
           </a>
         </div>
 
-        <div class="ph about-photo" role="img" aria-label="Mesto za fotografiju rotvajlera u dvorištu odgajivačnice">
+        <div class="ph about-photo">
+          <img src="assets/o-nama.jpg" alt="Rotvajler sedi u dvorištu odgajivačnice">
           FOTOGRAFIJA PSA U DVORIŠTU
         </div>
       </div>
@@ -1109,7 +1128,8 @@
 
       <div class="parents-grid">
         <div class="parent-card">
-          <div class="ph" role="img" aria-label="Mesto za fotografiju mužjaka Rex von House">
+          <div class="ph">
+            <img src="assets/rex.jpg" alt="Rex von House, mužjak rotvajlera, stoji na travi">
             FOTOGRAFIJA - REX VON HOUSE
           </div>
           <h3>Rex von House</h3>
@@ -1124,7 +1144,8 @@
         </div>
 
         <div class="parent-card">
-          <div class="ph" role="img" aria-label="Mesto za fotografiju ženke Ema von House">
+          <div class="ph">
+            <img src="assets/ema.jpg" alt="Ema von House, ženka rotvajlera, sedi pored odgajivača">
             FOTOGRAFIJA - EMA VON HOUSE
           </div>
           <h3>Ema von House</h3>
@@ -1148,7 +1169,8 @@
       <p class="section-sub">Pomet od Rexa i Eme, rođen 3. avgusta. Šest štenaca, odlaze kod novih vlasnika kad napune 8 nedelja.</p>
 
       <div class="litter-box">
-        <div class="ph" role="img" aria-label="Mesto za fotografiju trenutnog pometa štenaca">
+        <div class="ph">
+          <img src="assets/stene.jpg" alt="Štene rotvajlera naslonjeno na kapiju odgajivačnice">
           FOTOGRAFIJA POMETA
         </div>
         <div class="litter-info">
@@ -1290,6 +1312,27 @@
     hamburgerBtn.addEventListener('click', function () {
       var isOpen = navPanel.classList.toggle('open');
       hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Dok fotografija ne postoji u assets/, ostaje sivi placeholder ispod nje.
+    var shots = document.querySelectorAll('.ph img');
+    shots.forEach(function (img) {
+      function loaded() {
+        img.parentNode.classList.add('has-photo');
+      }
+      function missing() {
+        img.remove();
+      }
+      if (img.complete) {
+        if (img.naturalWidth > 0) {
+          loaded();
+        } else {
+          missing();
+        }
+        return;
+      }
+      img.addEventListener('load', loaded);
+      img.addEventListener('error', missing);
     });
 
     var navAnchors = navPanel.querySelectorAll('a');
