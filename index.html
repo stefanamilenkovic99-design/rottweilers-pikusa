@@ -6,16 +6,21 @@
 <title>Rottweiler Vonhouse - odgajivačnica rotvajlera</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --dark: #1B1B1B;
-    --bg: #F7F4F0;
-    --bg-alt: #EFEAE3;
-    --accent: #8B2E2E;
-    --accent-dark: #6E2323;
-    --border: #DDD6CC;
-    --white: #FFFFFF;
+    --ink: #212121;
+    --ink-deep: #1A1A1A;
+    --panel: #272522;
+    --brown: #38240D;
+    --brown-soft: #4A3115;
+    --tan: #B79A73;
+    --text: #CFC9C0;
+    --muted: #8B857B;
+    --ghost: #6E6960;
+    --line: #363330;
+    --line-soft: #47423B;
+    --white: #F2EEE8;
   }
 
   * {
@@ -28,20 +33,22 @@
 
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--dark);
+    background: var(--ink);
+    color: var(--text);
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.7;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.15;
+    font-weight: 700;
   }
 
   p {
@@ -65,79 +72,94 @@
     padding-right: 24px;
   }
 
-  @media (max-width: 768px) {
-    .wrap {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-
   section {
     padding-top: 96px;
     padding-bottom: 96px;
   }
 
-  @media (max-width: 768px) {
-    section {
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-  }
-
+  /* TIPOGRAFSKI ELEMENTI */
   .eyebrow {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 2px;
+    font-size: 11px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
+    color: var(--tan);
+    margin-bottom: 16px;
   }
 
   .section-title {
-    font-size: 36px;
-    max-width: 600px;
+    font-size: 40px;
+    max-width: 16ch;
   }
 
   .section-sub {
-    max-width: 65ch;
-    font-size: 16px;
-    color: #4a4a4a;
-    margin-top: 16px;
+    max-width: 60ch;
+    color: var(--muted);
+    margin-top: 18px;
+  }
+
+  .vtitle {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--ghost);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    align-self: start;
+    margin: 0;
   }
 
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 32px;
+    padding-right: 32px;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     cursor: pointer;
     border: 1px solid transparent;
     white-space: nowrap;
   }
 
   .btn-primary {
-    background: var(--accent);
+    background: var(--brown);
     color: var(--white);
+    border-color: var(--brown-soft);
   }
 
   .btn-primary:hover {
-    background: var(--accent-dark);
+    background: var(--brown-soft);
   }
 
-  .btn-outline {
-    background: transparent;
-    color: var(--dark);
-    border: 1px solid var(--dark);
+  .more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--tan);
   }
 
-  .btn-outline:hover {
-    background: var(--dark);
+  .more svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .more:hover {
     color: var(--white);
   }
 
@@ -146,41 +168,70 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
+    background: var(--ink);
+    border-bottom: 1px solid var(--line);
   }
 
   .navbar .wrap {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 78px;
+    height: 84px;
   }
 
   .logo {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 0.5px;
+    font-size: 26px;
+    color: var(--white);
+    letter-spacing: -0.01em;
   }
 
   .logo span {
-    color: var(--accent);
+    color: var(--tan);
+  }
+
+  .nav-panel {
+    display: flex;
+    align-items: center;
+    gap: 40px;
   }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
   }
 
-  .nav-links a.link {
-    font-size: 14px;
+  .nav-links a {
+    font-size: 13px;
     font-weight: 500;
+    color: var(--muted);
   }
 
-  .nav-links a.link:hover {
-    color: var(--accent);
+  .nav-links a:hover {
+    color: var(--white);
+  }
+
+  .nav-call {
+    text-align: right;
+  }
+
+  .nav-call .label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+
+  .nav-call .num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1.1;
   }
 
   .hamburger {
@@ -188,8 +239,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     background: none;
     border: none;
     cursor: pointer;
@@ -198,9 +249,9 @@
 
   .hamburger span {
     display: block;
-    height: 2px;
+    height: 1px;
     width: 100%;
-    background: var(--dark);
+    background: var(--white);
   }
 
   @media (max-width: 991px) {
@@ -208,150 +259,233 @@
       display: flex;
     }
 
-    .nav-links {
+    .nav-panel {
       display: none;
       position: absolute;
-      top: 78px;
+      top: 84px;
       left: 0;
       right: 0;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      background: var(--ink);
+      border-bottom: 1px solid var(--line);
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
-      padding-top: 12px;
+      padding-top: 8px;
       padding-bottom: 24px;
     }
 
-    .nav-links.open {
+    .nav-panel.open {
       display: flex;
     }
 
-    .nav-links a.link {
+    .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      width: 100%;
+    }
+
+    .nav-links a {
       width: 100%;
       padding-top: 14px;
       padding-bottom: 14px;
       padding-left: 24px;
       padding-right: 24px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
     }
 
-    .nav-links .btn {
-      margin-top: 16px;
-      margin-left: 24px;
+    .nav-call {
+      text-align: left;
+      padding-top: 20px;
+      padding-left: 24px;
+      padding-right: 24px;
     }
   }
 
   /* HERO */
   .hero {
-    background: var(--dark);
-    color: var(--white);
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 40px;
+    padding-bottom: 96px;
   }
 
-  .hero .wrap {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .hero h1 {
-    color: var(--white);
-    font-size: 54px;
-    max-width: 560px;
-  }
-
-  .hero p.sub {
-    color: #C9C4BC;
-    font-size: 18px;
-    max-width: 48ch;
-    margin-top: 22px;
-  }
-
-  .hero-ctas {
+  .hero-stage {
+    position: relative;
     display: flex;
-    gap: 16px;
-    margin-top: 34px;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 
-  .hero .btn-outline {
-    border-color: #6b6b6b;
+  .hero-word {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: clamp(56px, 17vw, 230px);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    color: var(--ghost);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .hero-photo {
+    position: relative;
+    z-index: 2;
+    width: min(400px, 66vw);
+    min-height: clamp(340px, 46vw, 540px);
+  }
+
+  .hero-foot {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 56px;
+    align-items: end;
+    margin-top: 28px;
+  }
+
+  .hero-kicker {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1.15;
     color: var(--white);
   }
 
-  .hero .btn-outline:hover {
-    background: var(--white);
-    color: var(--dark);
+  .hero-copy .sub {
+    max-width: 52ch;
+    color: var(--muted);
+    font-size: 16px;
   }
 
-  .placeholder-img {
-    background: #3a3a3a;
-    color: #ADA9A2;
+  .hero-copy .btn {
+    margin-top: 26px;
+  }
+
+  @media (min-width: 992px) {
+    .hero-kicker {
+      margin-top: -90px;
+    }
+  }
+
+  /* PLACEHOLDERI */
+  .ph {
+    background: #2E2B27;
+    border: 1px dashed var(--line-soft);
+    border-radius: 8px;
+    color: var(--muted);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    letter-spacing: 1px;
+    font-size: 11px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    border: 1px dashed #565656;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    min-height: 340px;
-    border-radius: 8px;
-  }
-
-  .placeholder-img.light {
-    background: #E4DFD7;
-    color: #8a8478;
-    border: 1px dashed #C6BFB2;
   }
 
   /* O NAMA */
-  .about .wrap {
+  .about-grid {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 40px;
+    align-items: start;
   }
 
-  .about .placeholder-img.light {
+  .about-panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding-top: 34px;
+    padding-bottom: 34px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  .about-panel p {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 55ch;
+  }
+
+  .about-panel p + p {
+    margin-top: 16px;
+  }
+
+  .about-photo {
     min-height: 380px;
   }
 
-  .about-text p {
-    margin-top: 18px;
-    max-width: 60ch;
-    color: #333;
-  }
-
-  /* STATS */
   .stats-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    margin-top: 40px;
-    border-top: 1px solid var(--border);
-    padding-top: 40px;
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+    padding-top: 36px;
   }
 
   .stat-num {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 34px;
-    color: var(--accent);
+    font-size: 38px;
+    color: var(--tan);
+    line-height: 1;
   }
 
   .stat-label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* TRI KOLONE SA IKONICAMA */
+  .cols-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    border-top: 1px solid var(--line);
+    padding-top: 44px;
+  }
+
+  .col-item .icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .col-item .icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--tan);
+  }
+
+  .col-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     font-size: 13px;
-    color: #555;
-    margin-top: 6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .col-item p {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 34ch;
   }
 
   /* RODITELJI */
@@ -359,68 +493,74 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    margin-top: 48px;
+    margin-top: 52px;
   }
 
   .parent-card {
-    border: 1px solid var(--border);
+    background: var(--panel);
+    border: 1px solid var(--line);
     border-radius: 8px;
     padding-top: 28px;
     padding-bottom: 28px;
     padding-left: 28px;
     padding-right: 28px;
-    background: var(--white);
   }
 
-  .parent-card .placeholder-img {
-    min-height: 260px;
+  .parent-card .ph {
+    min-height: 280px;
     margin-bottom: 24px;
   }
 
   .parent-card h3 {
-    font-size: 22px;
+    font-size: 28px;
   }
 
   .parent-role {
-    color: var(--accent);
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 4px;
     display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--tan);
+    margin-top: 8px;
   }
 
   .parent-facts {
     list-style: none;
     padding: 0;
-    margin-top: 18px;
+    margin-top: 22px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    font-size: 14px;
-    color: #444;
+    gap: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
   .parent-facts li strong {
     display: block;
-    color: var(--dark);
-    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--white);
+    margin-bottom: 2px;
   }
 
   .parent-desc {
-    margin-top: 18px;
+    margin-top: 22px;
     font-size: 14px;
-    color: #444;
-    max-width: 55ch;
+    color: var(--muted);
+    max-width: 50ch;
   }
 
   /* STENCI */
-  .puppies-box {
-    margin-top: 48px;
-    border: 1px solid var(--border);
+  .litter-box {
+    margin-top: 52px;
+    background: var(--panel);
+    border: 1px solid var(--line);
     border-radius: 8px;
-    background: var(--white);
     padding-top: 40px;
     padding-bottom: 40px;
     padding-left: 40px;
@@ -431,178 +571,168 @@
     align-items: center;
   }
 
-  .puppies-info h3 {
-    font-size: 26px;
+  .litter-box .ph {
+    min-height: 300px;
   }
 
-  .puppy-facts {
-    margin-top: 20px;
+  .litter-info h3 {
+    font-size: 30px;
+  }
+
+  .litter-facts {
     list-style: none;
     padding: 0;
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    font-size: 15px;
-    color: #333;
-  }
-
-  .puppy-facts li {
-    padding-left: 18px;
-    border-left: 2px solid var(--accent);
-  }
-
-  .puppies-info .btn {
-    margin-top: 26px;
-  }
-
-  .puppies-box .placeholder-img {
-    min-height: 260px;
-  }
-
-  /* ZASTO MI */
-  .why-grid {
-    margin-top: 48px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--border);
-    border-left: 1px solid var(--border);
-  }
-
-  .why-item {
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding-top: 32px;
-    padding-bottom: 32px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .why-item svg {
-    width: 32px;
-    height: 32px;
-    color: var(--accent);
-    margin-bottom: 18px;
-  }
-
-  .why-item h4 {
-    font-size: 17px;
-    margin-bottom: 10px;
-  }
-
-  .why-item p {
+    gap: 12px;
     font-size: 14px;
-    color: #4a4a4a;
-    max-width: 30ch;
+    color: var(--muted);
   }
 
-  /* PROCES */
+  .litter-facts li {
+    padding-left: 18px;
+    border-left: 1px solid var(--tan);
+  }
+
+  .litter-info .btn {
+    margin-top: 30px;
+  }
+
+  /* PROCES - BRAON BEND */
+  .process {
+    background: var(--brown);
+  }
+
   .process-grid {
-    margin-top: 48px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+    grid-template-columns: auto minmax(0, 1fr) minmax(0, 320px);
+    gap: 48px;
+    align-items: start;
   }
 
-  .process-step {
-    position: relative;
+  .process .vtitle {
+    color: #7A5C34;
   }
 
-  .process-num {
-    font-family: 'Oswald', sans-serif;
-    font-size: 44px;
+  .process-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
-    color: var(--bg-alt);
-    -webkit-text-stroke: 1.5px var(--accent);
+    font-size: 34px;
+    color: var(--white);
+    line-height: 1;
     margin-bottom: 14px;
   }
 
-  .process-step h4 {
-    font-size: 17px;
-    margin-bottom: 8px;
+  .step h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #E2D4BF;
+    line-height: 1.5;
+    margin-bottom: 10px;
   }
 
-  .process-step p {
+  .step p {
     font-size: 14px;
-    color: #4a4a4a;
+    color: #B39D80;
+    max-width: 32ch;
+  }
+
+  .process .ph {
+    background: #46300F;
+    border-color: #6B4A21;
+    color: #A08558;
+    min-height: 320px;
   }
 
   /* KONTAKT */
-  .contact {
-    background: var(--dark);
-    color: var(--white);
-  }
-
-  .contact .section-title {
-    color: var(--white);
-  }
-
-  .contact .eyebrow {
-    color: #C9986B;
-  }
-
   .contact-grid {
-    margin-top: 48px;
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 60px;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 64px;
+    margin-top: 52px;
   }
 
-  .contact-info-item {
-    border-top: 1px solid #3a3a3a;
+  .info-item {
+    border-top: 1px solid var(--line);
     padding-top: 18px;
     padding-bottom: 18px;
   }
 
-  .contact-info-item:first-child {
+  .info-item:first-child {
     border-top: none;
+    padding-top: 0;
   }
 
-  .contact-info-item span.label {
+  .info-item .label {
     display: block;
-    font-size: 12px;
+    font-size: 10px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #ADA9A2;
+    color: var(--muted);
     margin-bottom: 6px;
   }
 
-  .contact-info-item span.value {
-    font-size: 17px;
-    font-weight: 600;
+  .info-item .value {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 21px;
+    color: var(--white);
   }
 
-  form.contact-form {
+  .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
   }
 
   .contact-form label {
-    font-size: 13px;
-    color: #C9C4BC;
-    margin-bottom: 6px;
     display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
   }
 
   .contact-form input,
   .contact-form textarea {
     width: 100%;
-    background: #2A2A2A;
-    border: 1px solid #444;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
     border-radius: 8px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 16px;
+    padding-right: 16px;
     color: var(--white);
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
   }
 
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: #6A655D;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--tan);
+  }
+
   .contact-form textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 120px;
   }
 
   .contact-form .btn {
@@ -612,100 +742,220 @@
 
   /* FOOTER */
   footer {
-    background: var(--dark);
-    border-top: 1px solid #333;
-    padding-top: 40px;
+    background: var(--ink-deep);
+    border-top: 1px solid var(--line);
+    padding-top: 64px;
     padding-bottom: 40px;
   }
 
   .footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .footer-col .head {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--tan);
+    margin-bottom: 16px;
+  }
+
+  .footer-col p,
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .footer-col a:hover {
+    color: var(--white);
+  }
+
+  .footer-col p + p,
+  .footer-col a + a {
+    margin-top: 8px;
+  }
+
+  .news-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .news-form input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .news-form input::placeholder {
+    color: #6A655D;
+  }
+
+  .news-form input:focus {
+    outline: none;
+    border-bottom-color: var(--tan);
+  }
+
+  .news-form button {
+    background: var(--brown);
+    border: 1px solid var(--brown-soft);
+    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .news-form button svg {
+    width: 16px;
+    height: 16px;
+    color: var(--white);
+  }
+
+  .footer-bottom {
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-    color: #ADA9A2;
-    font-size: 13px;
-  }
-
-  .footer-grid .logo {
-    color: var(--white);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 24px;
-  }
-
-  .footer-links a:hover {
-    color: var(--white);
+    gap: 16px;
+    font-size: 12px;
+    color: var(--muted);
   }
 
   /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .process-grid {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .process-photo {
+      display: none;
+    }
+  }
+
   @media (max-width: 991px) {
-    .hero .wrap,
-    .about .wrap,
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .hero .wrap {
-      gap: 40px;
-    }
-
-    .about .wrap {
-      gap: 32px;
-    }
-
-    .stats-row {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
+    .about-grid,
+    .process-grid,
+    .contact-grid,
+    .litter-box,
     .parents-grid {
       grid-template-columns: 1fr;
     }
 
-    .puppies-box {
-      grid-template-columns: 1fr;
+    .vtitle {
+      writing-mode: horizontal-tb;
+      transform: none;
+      font-size: 34px;
+      margin-bottom: 8px;
     }
 
-    .why-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .cols-3 {
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .process-photo {
+      display: flex;
     }
 
     .process-grid {
-      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
     }
   }
 
   @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 38px;
+    .wrap {
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
-    .section-title {
+    section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .hero {
+      padding-top: 24px;
+      padding-bottom: 64px;
+    }
+
+    .hero-stage {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-word {
+      position: static;
+      transform: none;
+      margin-bottom: -22px;
+      text-align: center;
+    }
+
+    .hero-photo {
+      width: min(300px, 80vw);
+      min-height: 320px;
+    }
+
+    .hero-foot {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .hero-kicker {
       font-size: 28px;
     }
 
+    .section-title {
+      font-size: 30px;
+    }
+
     .stats-row {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
     }
 
-    .why-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .process-grid {
-      grid-template-columns: 1fr;
-    }
-
+    .cols-3,
+    .process-steps,
     .footer-grid {
-      flex-direction: column;
-      align-items: flex-start;
+      grid-template-columns: 1fr;
     }
 
-    .footer-links {
-      flex-wrap: wrap;
+    .about-panel,
+    .litter-box {
+      padding-top: 26px;
+      padding-bottom: 26px;
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .parent-facts {
+      gap: 12px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
     }
   }
 </style>
@@ -714,15 +964,22 @@
 
   <header class="navbar">
     <div class="wrap">
-      <a href="#" class="logo">Rottweiler <span>Vonhouse</span></a>
-      <nav class="nav-links" id="navLinks">
-        <a class="link" href="#o-nama">O nama</a>
-        <a class="link" href="#roditelji">Roditelji</a>
-        <a class="link" href="#stenci">Štenci</a>
-        <a class="link" href="#proces">Proces</a>
-        <a class="link" href="#kontakt">Kontakt</a>
-        <a class="btn btn-primary" href="#kontakt">Rezerviši štene</a>
-      </nav>
+      <a href="#" class="logo">von<span>house</span></a>
+
+      <div class="nav-panel" id="navPanel">
+        <nav class="nav-links">
+          <a href="#o-nama">O nama</a>
+          <a href="#roditelji">Roditelji</a>
+          <a href="#stenci">Štenci</a>
+          <a href="#proces">Proces</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <a class="nav-call" href="tel:+381641234567">
+          <span class="label">Pozovi nas</span>
+          <span class="num">064 123 45 67</span>
+        </a>
+      </div>
+
       <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni" aria-expanded="false">
         <span></span>
         <span></span>
@@ -733,49 +990,102 @@
 
   <section class="hero">
     <div class="wrap">
-      <div>
-        <h1>Rotvajler koji čuva ono što ti je važno</h1>
-        <p class="sub">Odgajivačnica Vonhouse radi sa rotvajlerima od 2015. godine. Svako štene ima rodovnik, pregledane kukove i roditelje koje možeš da upoznaš pre nego što se odlučiš.</p>
-        <div class="hero-ctas">
-          <a href="#kontakt" class="btn btn-primary">Rezerviši štene</a>
-          <a href="#roditelji" class="btn btn-outline">Pogledaj roditelje</a>
+      <div class="hero-stage">
+        <h1 class="hero-word">rotvajler</h1>
+        <div class="ph hero-photo" role="img" aria-label="Mesto za fotografiju odraslog rotvajlera u punom stavu">
+          FOTOGRAFIJA ODRASLOG ROTVAJLERA
         </div>
       </div>
-      <div class="placeholder-img" role="img" aria-label="Placeholder za fotografiju odraslog rotvajlera">
-        FOTOGRAFIJA ODRASLOG ROTVAJLERA
+
+      <div class="hero-foot">
+        <p class="hero-kicker">Odgajivačnica<br>Vonhouse</p>
+        <div class="hero-copy">
+          <p class="sub">Radimo sa rotvajlerima od 2015. godine u Erdeviku. Svako štene ima rodovnik, pregledane kukove i roditelje koje možeš da upoznaš pre nego što se odlučiš.</p>
+          <a href="#kontakt" class="btn btn-primary">Rezerviši štene</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="about" id="o-nama">
+  <section id="o-nama">
     <div class="wrap">
-      <div class="placeholder-img light" role="img" aria-label="Placeholder za fotografiju štenaca sa majkom">
-        FOTOGRAFIJA ŠTENACA SA MAJKOM
-      </div>
-      <div class="about-text">
-        <span class="eyebrow">O odgajivačnici</span>
-        <h2 class="section-title">Deset godina rada sa jednom rasom</h2>
-        <p>Počeli smo 2015. sa jednom kučkom i jednim ciljem - da odgajamo rotvajlere kakvi treba da budu. Stabilnog temperamenta, zdravih kukova, spremne da čuvaju porodicu bez straha od sveta.</p>
-        <p>Do danas smo odgojili 12 pomета. Svaki pomet prijavljujemo kod Kinološkog saveza Srbije i svako štene ide sa rodovnikom.</p>
-        <p>Psi žive u kući, ne u boksu iza dvorišta. Štenci prve nedelje provode okruženi ljudima, decom i drugim psima, pa znaju šta je normalan život pre nego što odu u novi dom.</p>
+      <div class="about-grid">
+        <h2 class="vtitle">O nama</h2>
 
-        <div class="stats-row">
-          <div>
-            <div class="stat-num">2015.</div>
-            <div class="stat-label">godina osnivanja</div>
+        <div class="about-panel">
+          <span class="eyebrow">Deset godina, jedna rasa</span>
+          <p>Počeli smo 2015. sa jednom kučkom i jednim ciljem, da odgajamo rotvajlere kakvi treba da budu. Stabilan temperament, zdravi kukovi, spremni da čuvaju porodicu bez straha od sveta.</p>
+          <p>Do danas smo odgojili 12 pometa. Svaki pomet prijavljujemo kod Kinološkog saveza Srbije i svako štene ide sa rodovnikom.</p>
+          <p>Psi žive u kući, ne u boksu iza dvorišta. Štenci prve nedelje provode okruženi ljudima, decom i drugim psima, pa znaju šta je normalan život pre nego što odu u novi dom.</p>
+          <a href="#roditelji" class="more">
+            Pogledaj roditelje
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </a>
+        </div>
+
+        <div class="ph about-photo" role="img" aria-label="Mesto za fotografiju rotvajlera u dvorištu odgajivačnice">
+          FOTOGRAFIJA PSA U DVORIŠTU
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div>
+          <div class="stat-num">2015.</div>
+          <div class="stat-label">godina osnivanja</div>
+        </div>
+        <div>
+          <div class="stat-num">12</div>
+          <div class="stat-label">odgojenih pometa</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">štenaca sa papirima</div>
+        </div>
+        <div>
+          <div class="stat-num">2</div>
+          <div class="stat-label">psa za rasplod u kući</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="zasto-mi" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="cols-3">
+        <div class="col-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>
           </div>
-          <div>
-            <div class="stat-num">12</div>
-            <div class="stat-label">odgojenih pometa</div>
+          <h3>Pregled kukova i lakata</h3>
+          <p>Oba roditelja pregledana su kod veterinara ortopeda pre parenja. Papire za HD i ED status možeš da vidiš lično kad dođeš.</p>
+          <a href="#roditelji" class="more">
+            Saznaj više
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </a>
+        </div>
+
+        <div class="col-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg>
           </div>
-          <div>
-            <div class="stat-num">100%</div>
-            <div class="stat-label">štenaca sa papirima</div>
+          <h3>Ugovor pri kupovini</h3>
+          <p>Potpisujemo ugovor sa svakim kupcem. Piše šta dobijaš, kada, i šta radim ako se nešto ne slaže sa dogovorom.</p>
+          <a href="#proces" class="more">
+            Saznaj više
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </a>
+        </div>
+
+        <div class="col-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5c0 4-4 6.5-9 6.5-1 0-2-.1-2.9-.3L4 20l1.2-3.3C3.8 15.4 3 13.6 3 11.5 3 7.4 7 4.5 12 4.5s9 2.9 9 7z"/></svg>
           </div>
-          <div>
-            <div class="stat-num">2</div>
-            <div class="stat-label">psa za rasplod u kući</div>
-          </div>
+          <h3>Podrška posle kupovine</h3>
+          <p>Javi se i posle godinu dana ako imaš pitanje oko ishrane, dresure ili ponašanja. Odgovaram isti dan.</p>
+          <a href="#kontakt" class="more">
+            Saznaj više
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -789,7 +1099,7 @@
 
       <div class="parents-grid">
         <div class="parent-card">
-          <div class="placeholder-img light" role="img" aria-label="Placeholder za fotografiju mužjaka Rex von House">
+          <div class="ph" role="img" aria-label="Mesto za fotografiju mužjaka Rex von House">
             FOTOGRAFIJA - REX VON HOUSE
           </div>
           <h3>Rex von House</h3>
@@ -800,11 +1110,11 @@
             <li><strong>HD-A</strong>status kukova</li>
             <li><strong>ED-0</strong>status lakata</li>
           </ul>
-          <p class="parent-desc">Linija iz Nemačke, otac Bruno von Stahl. Mirotvoran u kući, glasan i odlučan kad oseti da nešto nije u redu na kapiji.</p>
+          <p class="parent-desc">Linija iz Nemačke, otac Bruno von Stahl. Miran u kući, glasan i odlučan kad oseti da nešto nije u redu na kapiji.</p>
         </div>
 
         <div class="parent-card">
-          <div class="placeholder-img light" role="img" aria-label="Placeholder za fotografiju ženke Ema von House">
+          <div class="ph" role="img" aria-label="Mesto za fotografiju ženke Ema von House">
             FOTOGRAFIJA - EMA VON HOUSE
           </div>
           <h3>Ema von House</h3>
@@ -821,19 +1131,19 @@
     </div>
   </section>
 
-  <section id="stenci" style="background: var(--bg-alt);">
+  <section id="stenci">
     <div class="wrap">
       <span class="eyebrow">Trenutni pomet</span>
       <h2 class="section-title">Štenci na raspolaganju</h2>
-      <p class="section-sub">Pomet od Rex-a i Eme, rođen 3. avgusta. Šest štenaca, spremni da napuste nas za 8 nedelja od rođenja.</p>
+      <p class="section-sub">Pomet od Rexa i Eme, rođen 3. avgusta. Šest štenaca, odlaze kod novih vlasnika kad napune 8 nedelja.</p>
 
-      <div class="puppies-box">
-        <div class="placeholder-img" role="img" aria-label="Placeholder za fotografiju trenutnog pometa štenaca">
+      <div class="litter-box">
+        <div class="ph" role="img" aria-label="Mesto za fotografiju trenutnog pometa štenaca">
           FOTOGRAFIJA POMETA
         </div>
-        <div class="puppies-info">
-          <h3>Pomet R - avgust 2024.</h3>
-          <ul class="puppy-facts">
+        <div class="litter-info">
+          <h3>Pomet R, avgust 2024.</h3>
+          <ul class="litter-facts">
             <li>4 mužjaka, 2 ženke</li>
             <li>Prva vakcina i čipovanje pri preuzimanju</li>
             <li>Rodovnik Kinološkog saveza Srbije</li>
@@ -845,91 +1155,64 @@
     </div>
   </section>
 
-  <section id="zasto-mi">
+  <section class="process" id="proces">
     <div class="wrap">
-      <span class="eyebrow">Zašto mi</span>
-      <h2 class="section-title">Zašto ljudi biraju Vonhouse</h2>
-      <p class="section-sub">Nema iznenađenja kad štene stigne kod tebe. Sve što treba da znaš, znaš pre nego što daš kapару.</p>
-
-      <div class="why-grid">
-        <div class="why-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>
-          <h4>Pregled kukova i lakata</h4>
-          <p>Oba roditelja pregledana su kod veterinara ortopeda pre parenja. Papire za HD i ED status možeš da vidiš lično.</p>
-        </div>
-        <div class="why-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 6l2 14h12l2-14M9 6V4h6v2"/></svg>
-          <h4>Ugovor pri kupovini</h4>
-          <p>Potpisujemo ugovor sa svakim kupcem. Piše šta dobijaš, kada, i šta radim ako se nešto ne slaže sa dogovorom.</p>
-        </div>
-        <div class="why-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 8.5c0 4-4.5 7-10 11.5C6.5 15.5 2 12.5 2 8.5 2 5.5 4.5 3 7.5 3c1.7 0 3.2.8 4.5 2.2C13.3 3.8 14.8 3 16.5 3 19.5 3 22 5.5 22 8.5z"/></svg>
-          <h4>Podrška posle kupovine</h4>
-          <p>Javi se i posle godinu dana ako imaš pitanje oko ishrane, dresure ili ponašanja. Odgovaram.</p>
-        </div>
-        <div class="why-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg>
-          <h4>Socijalizacija od prvog dana</h4>
-          <p>Štenci upoznaju decu, buku, druge životinje i vožnju autom pre nego što napuste nas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="proces" style="background: var(--bg-alt);">
-    <div class="wrap">
-      <span class="eyebrow">Proces</span>
-      <h2 class="section-title">Kako izgleda rezervacija</h2>
-      <p class="section-sub">Četiri koraka od poruke do štenca u tvom autu.</p>
-
       <div class="process-grid">
-        <div class="process-step">
-          <div class="process-num">01</div>
-          <h4>Pišeš ili zoveš</h4>
-          <p>Kažeš šta tražiš - mužjak ili ženka, kad ti odgovara termin.</p>
+        <h2 class="vtitle">Kako ide<br>rezervacija:</h2>
+
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-num">01.</div>
+            <h4>Pišeš ili zoveš</h4>
+            <p>Kažeš šta tražiš, mužjak ili ženka, i kad ti odgovara termin za posetu.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">02.</div>
+            <h4>Dolaziš u posetu</h4>
+            <p>Vidiš roditelje uživo i uslove u kojima žive štenci.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">03.</div>
+            <h4>Rezervišeš štene</h4>
+            <p>Dogovaramo kaparu i datum kad štene ide sa tobom.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">04.</div>
+            <h4>Vodiš štene kući</h4>
+            <p>Sa rodovnikom, mikročipom i prvom vakcinom u knjižici.</p>
+          </div>
         </div>
-        <div class="process-step">
-          <div class="process-num">02</div>
-          <h4>Dolaziš u posetu</h4>
-          <p>Vidiš roditelje uživo i uslove u kojima žive štenci.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">03</div>
-          <h4>Rezervišeš štene</h4>
-          <p>Dogovaramo kaparu i datum kad štene ide sa tobom.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">04</div>
-          <h4>Vodiš štene kući</h4>
-          <p>Sa rodovnikom, mikročipom i prvom vakcinom u knjižici.</p>
+
+        <div class="ph process-photo" role="img" aria-label="Mesto za fotografiju rotvajlera koji leži">
+          FOTOGRAFIJA PSA U LEŽEĆEM STAVU
         </div>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="kontakt">
+  <section id="kontakt">
     <div class="wrap">
       <span class="eyebrow">Kontakt</span>
       <h2 class="section-title">Javi se</h2>
-      <p class="section-sub" style="color:#C9C4BC;">Piši, zovi ili dođi na kafu do nas u Erdeviku. Odgovaram isti dan.</p>
+      <p class="section-sub">Piši, zovi ili dođi na kafu do nas u Erdevik. Odgovaram isti dan.</p>
 
       <div class="contact-grid">
         <div>
-          <div class="contact-info-item">
+          <div class="info-item">
             <span class="label">Telefon</span>
             <span class="value">064 123 45 67</span>
           </div>
-          <div class="contact-info-item">
+          <div class="info-item">
             <span class="label">Email</span>
             <span class="value">upiti@vonhouse-rottweiler.rs</span>
           </div>
-          <div class="contact-info-item">
+          <div class="info-item">
             <span class="label">Lokacija</span>
             <span class="value">Erdevik, Srem</span>
           </div>
-          <div class="contact-info-item">
-            <span class="label">Radno vreme za posete</span>
-            <span class="value">Sreda - Nedelja, 10h - 18h</span>
+          <div class="info-item">
+            <span class="label">Posete</span>
+            <span class="value">Sreda do nedelje, 10h - 18h</span>
           </div>
         </div>
 
@@ -944,7 +1227,7 @@
           </div>
           <div>
             <label for="poruka">Poruka</label>
-            <textarea id="poruka" name="poruka" placeholder="Napiši šta te interesuje - mužjak, ženka, kad bi mogao/mogla da dođeš u posetu"></textarea>
+            <textarea id="poruka" name="poruka" placeholder="Napiši šta te interesuje, mužjak ili ženka, i kad bi mogao da dođeš u posetu"></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Pošalji upit</button>
         </form>
@@ -953,31 +1236,56 @@
   </section>
 
   <footer>
-    <div class="wrap footer-grid">
-      <a href="#" class="logo">Rottweiler Vonhouse</a>
-      <nav class="footer-links">
-        <a href="#o-nama">O nama</a>
-        <a href="#roditelji">Roditelji</a>
-        <a href="#stenci">Štenci</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <span>© 2024 Rottweiler Vonhouse, Erdevik</span>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="logo">von<span>house</span></a>
+        </div>
+
+        <div class="footer-col">
+          <span class="head">Adresa</span>
+          <p>Erdevik, Srem</p>
+          <p>Posete sredom do nedelje</p>
+        </div>
+
+        <div class="footer-col">
+          <span class="head">Kontakt</span>
+          <a href="tel:+381641234567">064 123 45 67</a>
+          <a href="mailto:upiti@vonhouse-rottweiler.rs">upiti@vonhouse-rottweiler.rs</a>
+        </div>
+
+        <div class="footer-col">
+          <span class="head">Novosti o pometima</span>
+          <form class="news-form" action="#" method="post">
+            <label for="news-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email za novosti</label>
+            <input type="email" id="news-email" name="news-email" placeholder="Tvoj email">
+            <button type="submit" aria-label="Prijavi se na novosti">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2024 Rottweiler Vonhouse, Erdevik</span>
+        <span>Kinološki savez Srbije</span>
+      </div>
     </div>
   </footer>
 
   <script>
     var hamburgerBtn = document.getElementById('hamburgerBtn');
-    var navLinks = document.getElementById('navLinks');
+    var navPanel = document.getElementById('navPanel');
 
     hamburgerBtn.addEventListener('click', function () {
-      var isOpen = navLinks.classList.toggle('open');
+      var isOpen = navPanel.classList.toggle('open');
       hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    var navAnchors = navLinks.querySelectorAll('a');
+    var navAnchors = navPanel.querySelectorAll('a');
     navAnchors.forEach(function (a) {
       a.addEventListener('click', function () {
-        navLinks.classList.remove('open');
+        navPanel.classList.remove('open');
         hamburgerBtn.setAttribute('aria-expanded', 'false');
       });
     });
