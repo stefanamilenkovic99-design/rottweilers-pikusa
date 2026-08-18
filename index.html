@@ -333,10 +333,10 @@
       padding-right: 24px;
     }
 
+    /* prekidac jezika stoji u traci pored hamburgera, van klizeceg panela */
     .lang-switch {
-      padding-top: 20px;
-      padding-left: 24px;
-      padding-right: 24px;
+      margin-left: auto;
+      margin-right: 14px;
     }
   }
 
@@ -347,6 +347,7 @@
   }
 
   .hero-stage {
+    container-type: inline-size;
     position: relative;
     display: flex;
     align-items: center;
@@ -359,7 +360,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
-    font-size: clamp(48px, 30.5vw, 300px);
+    font-size: 20cqw; /* 20% sirine kontejnera - rec uvek staje unutar wrap-a */
     line-height: 0.85;
     letter-spacing: -0.045em;
     color: rgba(244, 241, 236, 0.2);
@@ -387,6 +388,8 @@
     text-align: center;
     gap: 20px;
     margin-top: 28px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-kicker {
@@ -405,7 +408,7 @@
   }
 
   .hero-copy .sub {
-    max-width: 70%;
+    max-width: 100%;
     color: var(--muted);
     font-size: 16px;
   }
@@ -1129,9 +1132,10 @@
       align-items: center;
     }
 
-    /* na mobilnom rec mora da stane u sirinu ekrana da bi se videla preko slike */
     .hero-word {
-      font-size: 19vw;
+      position: absolute;
+      left: 50%;
+      top: 80%;
     }
 
     .hero-photo {
@@ -1197,14 +1201,15 @@
           <a href="#proces" data-t="navProcess">Proces</a>
           <a href="#kontakt" data-t="navContact">Kontakt</a>
         </nav>
-        <div class="lang-switch">
-          <button type="button" class="langbtn on" data-lang="sr">SR</button>
-          <button type="button" class="langbtn" data-lang="en">EN</button>
-        </div>
         <a class="nav-call" href="tel:+381612127354">
           <span class="label" data-t="navCall">Pozovi nas</span>
           <span class="num">061 212 7354</span>
         </a>
+      </div>
+
+      <div class="lang-switch">
+        <button type="button" class="langbtn on" data-lang="sr">SR</button>
+        <button type="button" class="langbtn" data-lang="en">EN</button>
       </div>
 
       <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni" aria-expanded="false">
