@@ -221,6 +221,11 @@
     gap: 6px;
   }
 
+  /* kopija u traci sluzi samo mobilnom, na desktopu prekidac stoji u panelu */
+  .lang-mob {
+    display: none;
+  }
+
   .langbtn {
     background: transparent;
     color: var(--muted);
@@ -333,8 +338,13 @@
       padding-right: 24px;
     }
 
-    /* prekidac jezika stoji u traci pored hamburgera, van klizeceg panela */
-    .lang-switch {
+    /* na mobilnom prekidac stoji u traci pored hamburgera, van klizeceg panela */
+    .lang-desk {
+      display: none;
+    }
+
+    .lang-mob {
+      display: flex;
       margin-left: auto;
       margin-right: 14px;
     }
@@ -1201,13 +1211,17 @@
           <a href="#proces" data-t="navProcess">Proces</a>
           <a href="#kontakt" data-t="navContact">Kontakt</a>
         </nav>
+        <div class="lang-switch lang-desk">
+          <button type="button" class="langbtn on" data-lang="sr">SR</button>
+          <button type="button" class="langbtn" data-lang="en">EN</button>
+        </div>
         <a class="nav-call" href="tel:+381612127354">
           <span class="label" data-t="navCall">Pozovi nas</span>
           <span class="num">061 212 7354</span>
         </a>
       </div>
 
-      <div class="lang-switch">
+      <div class="lang-switch lang-mob">
         <button type="button" class="langbtn on" data-lang="sr">SR</button>
         <button type="button" class="langbtn" data-lang="en">EN</button>
       </div>
