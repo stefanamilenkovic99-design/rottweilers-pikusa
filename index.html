@@ -327,7 +327,7 @@
     font-size: clamp(48px, 30.5vw, 300px);
     line-height: 0.85;
     letter-spacing: -0.045em;
-    color: rgba(244, 241, 236, 0.58);
+    color: rgba(244, 241, 236, 0.2);
     mix-blend-mode: screen;
     white-space: nowrap;
     pointer-events: none;
@@ -366,10 +366,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .hero-copy .sub {
-    max-width: 52ch;
+    max-width: 70%;
     color: var(--muted);
     font-size: 16px;
   }
@@ -578,18 +579,18 @@
     max-width: 34ch;
   }
 
-  /* RODITELJI */
-  .parent-card .ph img {
+  /* UVECANJE FOTOGRAFIJA (sve osim hero) */
+  .ph img {
     cursor: pointer;
     transition: transform .55s ease;
   }
 
-  .parent-card .ph img:hover {
+  .ph img:hover {
     transform: scale(1.06);
   }
 
   /* dugme za uvecanje se pojavljuje tek kad fotografija zaista postoji */
-  .parent-card .ph .exp {
+  .ph .exp {
     display: none;
     position: absolute;
     top: 10px;
@@ -606,12 +607,16 @@
     z-index: 3;
   }
 
-  .parent-card .ph.has-photo .exp {
+  .ph.has-photo .exp {
     display: flex;
   }
 
-  .parent-card .ph .exp:hover {
+  .ph .exp:hover {
     background: rgba(15, 14, 13, 0.85);
+  }
+
+  .video-frame .exp {
+    display: none;
   }
 
   .lb {
@@ -1091,7 +1096,7 @@
 
     /* na mobilnom rec mora da stane u sirinu ekrana da bi se videla preko slike */
     .hero-word {
-      font-size: 23vw;
+      font-size: 19vw;
     }
 
     .hero-photo {
@@ -1174,7 +1179,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-stage">
-        <h1 class="hero-word">rotvajler</h1>
+        <h1 class="hero-word">Rottweiler</h1>
         <img class="hero-photo" src="assets/hero-rotvajler.jpg" alt="Portret odraslog rotvajlera iz odgajivačnice Vonhouse">
       </div>
 
@@ -1282,8 +1287,7 @@
       <div class="parents-grid">
         <div class="parent-card">
           <div class="ph">
-            <img src="assets/rex.jpg" data-exp-img="assets/rex.jpg" alt="Rex von House, mužjak rotvajlera, stoji na travi">
-            <button class="exp" data-exp-img="assets/rex.jpg" aria-label="Uvećaj sliku"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+            <img src="assets/rex.jpg" alt="Rex von House, mužjak rotvajlera, stoji na travi">
             FOTOGRAFIJA - REX VON HOUSE
           </div>
           <h3>Rex von House</h3>
@@ -1299,8 +1303,7 @@
 
         <div class="parent-card">
           <div class="ph">
-            <img src="assets/ema.jpg" data-exp-img="assets/ema.jpg" alt="Ema von House, ženka rotvajlera, sedi pored odgajivača">
-            <button class="exp" data-exp-img="assets/ema.jpg" aria-label="Uvećaj sliku"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+            <img src="assets/ema.jpg" alt="Ema von House, ženka rotvajlera, sedi pored odgajivača">
             FOTOGRAFIJA - EMA VON HOUSE
           </div>
           <h3>Ema von House</h3>
@@ -1497,6 +1500,7 @@
     shots.forEach(function (img) {
       function loaded() {
         img.parentNode.classList.add('has-photo');
+        addExpand(img);
       }
       function missing() {
         img.remove();
@@ -1584,13 +1588,33 @@
       if (e.target === lb) closeLb();
     });
 
-    var expTargets = document.querySelectorAll('[data-exp-img]');
-    expTargets.forEach(function (el) {
-      el.addEventListener('click', function (e) {
+    var EXP_ICON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+      + 'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+      + '<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>';
+
+    // Svaka fotografija van hero sekcije dobija dugme za uvecanje i otvara se u lightboxu.
+    function addExpand(img) {
+      var frame = img.parentNode;
+      if (frame.querySelector('.exp')) return;
+
+      var src = img.getAttribute('src');
+      var alt = img.getAttribute('alt');
+
+      function open(e) {
         e.stopPropagation();
-        openImg(this.getAttribute('data-exp-img'), this.getAttribute('alt'));
-      });
-    });
+        openImg(src, alt);
+      }
+
+      var btn = document.createElement('button');
+      btn.className = 'exp';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Uvećaj sliku');
+      btn.innerHTML = EXP_ICON;
+      btn.addEventListener('click', open);
+      frame.appendChild(btn);
+
+      img.addEventListener('click', open);
+    }
 
     // Video sa treninga: bez fajla u assets/ ostaje sivi placeholder, sa fajlom se pusta klikom.
     var trainVideos = document.querySelectorAll('.video-frame video[data-play]');
