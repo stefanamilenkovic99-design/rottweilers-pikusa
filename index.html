@@ -215,6 +215,35 @@
     color: var(--white);
   }
 
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .langbtn {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color .18s, border-color .18s;
+  }
+
+  .langbtn:hover {
+    color: var(--white);
+  }
+
+  .langbtn.on {
+    color: var(--tan);
+    border-color: var(--tan);
+  }
+
   .nav-call {
     text-align: right;
   }
@@ -299,6 +328,12 @@
 
     .nav-call {
       text-align: left;
+      padding-top: 20px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .lang-switch {
       padding-top: 20px;
       padding-left: 24px;
       padding-right: 24px;
@@ -1156,14 +1191,18 @@
 
       <div class="nav-panel" id="navPanel">
         <nav class="nav-links">
-          <a href="#o-nama">O nama</a>
-          <a href="#roditelji">Roditelji</a>
-          <a href="#stenci">Štenci</a>
-          <a href="#proces">Proces</a>
-          <a href="#kontakt">Kontakt</a>
+          <a href="#o-nama" data-t="navAbout">O nama</a>
+          <a href="#roditelji" data-t="navParents">Roditelji</a>
+          <a href="#stenci" data-t="navPuppies">Štenci</a>
+          <a href="#proces" data-t="navProcess">Proces</a>
+          <a href="#kontakt" data-t="navContact">Kontakt</a>
         </nav>
+        <div class="lang-switch">
+          <button type="button" class="langbtn on" data-lang="sr">SR</button>
+          <button type="button" class="langbtn" data-lang="en">EN</button>
+        </div>
         <a class="nav-call" href="tel:+381612127354">
-          <span class="label">Pozovi nas</span>
+          <span class="label" data-t="navCall">Pozovi nas</span>
           <span class="num">061 212 7354</span>
         </a>
       </div>
@@ -1184,10 +1223,10 @@
       </div>
 
       <div class="hero-foot">
-        <p class="hero-kicker">Odgajivačnica<br>Vonhouse</p>
+        <p class="hero-kicker"><span data-t="heroKicker">Odgajivačnica</span><br>Vonhouse</p>
         <div class="hero-copy">
-          <p class="sub">Radimo sa rotvajlerima od 2015. godine u Lapovu. Svako štene ima rodovnik, pregledane kukove i roditelje koje možeš da upoznaš pre nego što se odlučiš.</p>
-          <a href="#kontakt" class="btn btn-primary">Rezerviši štene</a>
+          <p class="sub" data-t="heroSub">Radimo sa rotvajlerima od 2015. godine u Lapovu. Svako štene ima rodovnik, pregledane kukove i roditelje koje možeš da upoznaš pre nego što se odlučiš.</p>
+          <a href="#kontakt" class="btn btn-primary" data-t="heroCta">Rezerviši štene</a>
         </div>
       </div>
     </div>
@@ -1196,15 +1235,15 @@
   <section id="o-nama">
     <div class="wrap">
       <div class="about-grid">
-        <h2 class="vtitle">O nama</h2>
+        <h2 class="vtitle" data-t="aboutTitle">O nama</h2>
 
         <div class="about-panel">
-          <span class="eyebrow">Deset godina, jedna rasa</span>
-          <p>Počeli smo 2015. sa jednom kučkom i jednim ciljem, da odgajamo rotvajlere kakvi treba da budu. Stabilan temperament, zdravi kukovi, spremni da čuvaju porodicu bez straha od sveta.</p>
-          <p>Do danas smo odgojili 12 pometa. Svaki pomet prijavljujemo kod Kinološkog saveza Srbije i svako štene ide sa rodovnikom.</p>
-          <p>Psi žive u kući, ne u boksu iza dvorišta. Štenci prve nedelje provode okruženi ljudima, decom i drugim psima, pa znaju šta je normalan život pre nego što odu u novi dom.</p>
+          <span class="eyebrow" data-t="aboutEyebrow">Deset godina, jedna rasa</span>
+          <p data-t="aboutP1">Počeli smo 2015. sa jednom kučkom i jednim ciljem, da odgajamo rotvajlere kakvi treba da budu. Stabilan temperament, zdravi kukovi, spremni da čuvaju porodicu bez straha od sveta.</p>
+          <p data-t="aboutP2">Do danas smo odgojili 12 pometa. Svaki pomet prijavljujemo kod Kinološkog saveza Srbije i svako štene ide sa rodovnikom.</p>
+          <p data-t="aboutP3">Psi žive u kući, ne u boksu iza dvorišta. Štenci prve nedelje provode okruženi ljudima, decom i drugim psima, pa znaju šta je normalan život pre nego što odu u novi dom.</p>
           <a href="#roditelji" class="more">
-            Pogledaj roditelje
+            <span data-t="aboutMore">Pogledaj roditelje</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
           </a>
         </div>
@@ -1217,20 +1256,20 @@
 
       <div class="stats-row">
         <div>
-          <div class="stat-num" data-count="2015" data-suffix=".">2015.</div>
-          <div class="stat-label">godina osnivanja</div>
+          <div class="stat-num" data-count="2015" data-suffix="." data-suffix-en="">2015.</div>
+          <div class="stat-label" data-t="stat1">godina osnivanja</div>
         </div>
         <div>
           <div class="stat-num" data-count="12">12</div>
-          <div class="stat-label">odgojenih pometa</div>
+          <div class="stat-label" data-t="stat2">odgojenih pometa</div>
         </div>
         <div>
           <div class="stat-num" data-count="100" data-suffix="%">100%</div>
-          <div class="stat-label">štenaca sa papirima</div>
+          <div class="stat-label" data-t="stat3">štenaca sa papirima</div>
         </div>
         <div>
           <div class="stat-num" data-count="2">2</div>
-          <div class="stat-label">psa za rasplod u kući</div>
+          <div class="stat-label" data-t="stat4">psa za rasplod u kući</div>
         </div>
       </div>
     </div>
@@ -1243,10 +1282,10 @@
           <div class="icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg>
           </div>
-          <h3>Pregled kukova i lakata</h3>
-          <p>Oba roditelja pregledana su kod veterinara ortopeda pre parenja. Papire za HD i ED status možeš da vidiš lično kad dođeš.</p>
+          <h3 data-t="col1Title">Pregled kukova i lakata</h3>
+          <p data-t="col1Text">Oba roditelja pregledana su kod veterinara ortopeda pre parenja. Papire za HD i ED status možeš da vidiš lično kad dođeš.</p>
           <a href="#roditelji" class="more">
-            Saznaj više
+            <span data-t="moreLink">Saznaj više</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
           </a>
         </div>
@@ -1255,10 +1294,10 @@
           <div class="icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg>
           </div>
-          <h3>Ugovor pri kupovini</h3>
-          <p>Potpisujemo ugovor sa svakim kupcem. Piše šta dobijaš, kada, i šta radim ako se nešto ne slaže sa dogovorom.</p>
+          <h3 data-t="col2Title">Ugovor pri kupovini</h3>
+          <p data-t="col2Text">Potpisujemo ugovor sa svakim kupcem. Piše šta dobijaš, kada, i šta radim ako se nešto ne slaže sa dogovorom.</p>
           <a href="#proces" class="more">
-            Saznaj više
+            <span data-t="moreLink">Saznaj više</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
           </a>
         </div>
@@ -1267,10 +1306,10 @@
           <div class="icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5c0 4-4 6.5-9 6.5-1 0-2-.1-2.9-.3L4 20l1.2-3.3C3.8 15.4 3 13.6 3 11.5 3 7.4 7 4.5 12 4.5s9 2.9 9 7z"/></svg>
           </div>
-          <h3>Podrška posle kupovine</h3>
-          <p>Javi se i posle godinu dana ako imaš pitanje oko ishrane, dresure ili ponašanja. Odgovaram isti dan.</p>
+          <h3 data-t="col3Title">Podrška posle kupovine</h3>
+          <p data-t="col3Text">Javi se i posle godinu dana ako imaš pitanje oko ishrane, dresure ili ponašanja. Odgovaram isti dan.</p>
           <a href="#kontakt" class="more">
-            Saznaj više
+            <span data-t="moreLink">Saznaj više</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
           </a>
         </div>
@@ -1280,9 +1319,9 @@
 
   <section id="roditelji">
     <div class="wrap">
-      <span class="eyebrow">Roditelji</span>
-      <h2 class="section-title">Psi koje ćeš lično upoznati</h2>
-      <p class="section-sub">Oba roditelja žive sa nama u kući. Kada dođeš u posetu, vidiš tačno od koga potiče štene koje planiraš da uzmeš.</p>
+      <span class="eyebrow" data-t="parentsEyebrow">Roditelji</span>
+      <h2 class="section-title" data-t="parentsTitle">Psi koje ćeš lično upoznati</h2>
+      <p class="section-sub" data-t="parentsSub">Oba roditelja žive sa nama u kući. Kada dođeš u posetu, vidiš tačno od koga potiče štene koje planiraš da uzmeš.</p>
 
       <div class="parents-grid">
         <div class="parent-card">
@@ -1291,14 +1330,14 @@
             FOTOGRAFIJA - REX VON HOUSE
           </div>
           <h3>Rex von House</h3>
-          <span class="parent-role">Mužjak, rođen 2019.</span>
+          <span class="parent-role" data-t="roleMale">Mužjak, rođen 2019.</span>
           <ul class="parent-facts">
-            <li><strong>68 cm</strong>visina u grebenu</li>
-            <li><strong>58 kg</strong>telesna masa</li>
-            <li><strong>HD-A</strong>status kukova</li>
-            <li><strong>ED-0</strong>status lakata</li>
+            <li><strong>68 cm</strong><span data-t="factHeight">visina u grebenu</span></li>
+            <li><strong>58 kg</strong><span data-t="factWeight">telesna masa</span></li>
+            <li><strong>HD-A</strong><span data-t="factHips">status kukova</span></li>
+            <li><strong>ED-0</strong><span data-t="factElbows">status lakata</span></li>
           </ul>
-          <p class="parent-desc">Linija iz Nemačke, otac Bruno von Stahl. Miran u kući, glasan i odlučan kad oseti da nešto nije u redu na kapiji.</p>
+          <p class="parent-desc" data-t="rexDesc">Linija iz Nemačke, otac Bruno von Stahl. Miran u kući, glasan i odlučan kad oseti da nešto nije u redu na kapiji.</p>
         </div>
 
         <div class="parent-card">
@@ -1307,14 +1346,14 @@
             FOTOGRAFIJA - EMA VON HOUSE
           </div>
           <h3>Ema von House</h3>
-          <span class="parent-role">Ženka, rođena 2020.</span>
+          <span class="parent-role" data-t="roleFemale">Ženka, rođena 2020.</span>
           <ul class="parent-facts">
-            <li><strong>62 cm</strong>visina u grebenu</li>
-            <li><strong>48 kg</strong>telesna masa</li>
-            <li><strong>HD-A</strong>status kukova</li>
-            <li><strong>ED-0</strong>status lakata</li>
+            <li><strong>62 cm</strong><span data-t="factHeight">visina u grebenu</span></li>
+            <li><strong>48 kg</strong><span data-t="factWeight">telesna masa</span></li>
+            <li><strong>HD-A</strong><span data-t="factHips">status kukova</span></li>
+            <li><strong>ED-0</strong><span data-t="factElbows">status lakata</span></li>
           </ul>
-          <p class="parent-desc">Strpljiva prema deci, oprezna prema strancima. Njeni štenci do sada su najbrže učili osnovne komande.</p>
+          <p class="parent-desc" data-t="emaDesc">Strpljiva prema deci, oprezna prema strancima. Njeni štenci do sada su najbrže učili osnovne komande.</p>
         </div>
       </div>
     </div>
@@ -1322,9 +1361,9 @@
 
   <section id="stenci">
     <div class="wrap">
-      <span class="eyebrow">Trenutni pomet</span>
-      <h2 class="section-title">Štenci na raspolaganju</h2>
-      <p class="section-sub">Pomet od Rexa i Eme, rođen 3. avgusta. Šest štenaca, odlaze kod novih vlasnika kad napune 8 nedelja.</p>
+      <span class="eyebrow" data-t="litterEyebrow">Trenutni pomet</span>
+      <h2 class="section-title" data-t="litterTitle">Štenci na raspolaganju</h2>
+      <p class="section-sub" data-t="litterSub">Pomet od Rexa i Eme, rođen 3. avgusta. Šest štenaca, odlaze kod novih vlasnika kad napune 8 nedelja.</p>
 
       <div class="litter-box">
         <div class="ph">
@@ -1332,14 +1371,14 @@
           FOTOGRAFIJA POMETA
         </div>
         <div class="litter-info">
-          <h3>Pomet R, avgust 2024.</h3>
+          <h3 data-t="litterName">Pomet R, avgust 2024.</h3>
           <ul class="litter-facts">
-            <li>4 mužjaka, 2 ženke</li>
-            <li>Prva vakcina i čipovanje pri preuzimanju</li>
-            <li>Rodovnik Kinološkog saveza Srbije</li>
-            <li>Spremni za predaju od 28. septembra</li>
+            <li data-t="litterFact1">4 mužjaka, 2 ženke</li>
+            <li data-t="litterFact2">Prva vakcina i čipovanje pri preuzimanju</li>
+            <li data-t="litterFact3">Rodovnik Kinološkog saveza Srbije</li>
+            <li data-t="litterFact4">Spremni za predaju od 28. septembra</li>
           </ul>
-          <a href="#kontakt" class="btn btn-primary">Pitaj za štene</a>
+          <a href="#kontakt" class="btn btn-primary" data-t="litterCta">Pitaj za štene</a>
         </div>
       </div>
     </div>
@@ -1347,9 +1386,9 @@
 
   <section id="trening">
     <div class="wrap">
-      <span class="eyebrow">Trening i takmičenja</span>
-      <h2 class="section-title">Kako naši psi rade</h2>
-      <p class="section-sub">Rad sa psima ne prestaje kad štene ode iz odgajivačnice. Roditelji redovno vežbaju poslušnost, a izlazimo i na izložbe i radne ispite Kinološkog saveza Srbije.</p>
+      <span class="eyebrow" data-t="trainEyebrow">Trening i takmičenja</span>
+      <h2 class="section-title" data-t="trainTitle">Kako naši psi rade</h2>
+      <p class="section-sub" data-t="trainSub">Rad sa psima ne prestaje kad štene ode iz odgajivačnice. Roditelji redovno vežbaju poslušnost, a izlazimo i na izložbe i radne ispite Kinološkog saveza Srbije.</p>
 
       <div class="ph video-frame">
         <video src="assets/trening.mp4" poster="assets/trening-poster.jpg" playsinline preload="metadata" data-play></video>
@@ -1358,35 +1397,35 @@
         </button>
         VIDEO - TRENING / TAKMIČENJE
       </div>
-      <p class="video-note">Snimak sa redovnog treninga poslušnosti</p>
+      <p class="video-note" data-t="videoNote">Snimak sa redovnog treninga poslušnosti</p>
     </div>
   </section>
 
   <section class="process" id="proces">
     <div class="wrap">
       <div class="process-grid">
-        <h2 class="vtitle">Kako ide<br>rezervacija:</h2>
+        <h2 class="vtitle"><span data-t="processTitle1">Kako ide</span><br><span data-t="processTitle2">rezervacija:</span></h2>
 
         <div class="process-steps">
           <div class="step">
             <div class="step-num">01.</div>
-            <h4>Pišeš ili zoveš</h4>
-            <p>Kažeš šta tražiš, mužjak ili ženka, i kad ti odgovara termin za posetu.</p>
+            <h4 data-t="step1Title">Pišeš ili zoveš</h4>
+            <p data-t="step1Text">Kažeš šta tražiš, mužjak ili ženka, i kad ti odgovara termin za posetu.</p>
           </div>
           <div class="step">
             <div class="step-num">02.</div>
-            <h4>Dolaziš u posetu</h4>
-            <p>Vidiš roditelje uživo i uslove u kojima žive štenci.</p>
+            <h4 data-t="step2Title">Dolaziš u posetu</h4>
+            <p data-t="step2Text">Vidiš roditelje uživo i uslove u kojima žive štenci.</p>
           </div>
           <div class="step">
             <div class="step-num">03.</div>
-            <h4>Rezervišeš štene</h4>
-            <p>Dogovaramo kaparu i datum kad štene ide sa tobom.</p>
+            <h4 data-t="step3Title">Rezervišeš štene</h4>
+            <p data-t="step3Text">Dogovaramo kaparu i datum kad štene ide sa tobom.</p>
           </div>
           <div class="step">
             <div class="step-num">04.</div>
-            <h4>Vodiš štene kući</h4>
-            <p>Sa rodovnikom, mikročipom i prvom vakcinom u knjižici.</p>
+            <h4 data-t="step4Title">Vodiš štene kući</h4>
+            <p data-t="step4Text">Sa rodovnikom, mikročipom i prvom vakcinom u knjižici.</p>
           </div>
         </div>
 
@@ -1400,48 +1439,48 @@
 
   <section id="kontakt">
     <div class="wrap">
-      <span class="eyebrow">Kontakt</span>
-      <h2 class="section-title">Javi se</h2>
-      <p class="section-sub">Piši, zovi ili dođi na kafu do nas u Lapovo. Odgovaram isti dan.</p>
+      <span class="eyebrow" data-t="contactEyebrow">Kontakt</span>
+      <h2 class="section-title" data-t="contactTitle">Javi se</h2>
+      <p class="section-sub" data-t="contactSub">Piši, zovi ili dođi na kafu do nas u Lapovo. Odgovaram isti dan.</p>
 
       <div class="contact-grid">
         <div>
           <div class="info-item">
-            <span class="label">Odgajivačnica</span>
+            <span class="label" data-t="lblKennel">Odgajivačnica</span>
             <span class="value">Von House Pikuša &middot; Ivan Jovanović</span>
           </div>
           <div class="info-item">
-            <span class="label">Telefon</span>
+            <span class="label" data-t="lblPhone">Telefon</span>
             <span class="value">061 212 7354</span>
           </div>
           <div class="info-item">
-            <span class="label">Email</span>
+            <span class="label" data-t="lblEmail">Email</span>
             <span class="value">vonhousepikusa@gmail.com</span>
           </div>
           <div class="info-item">
-            <span class="label">Adresa</span>
-            <span class="value">Radnička 41, 34220 Lapovo (Varošica), Srbija</span>
+            <span class="label" data-t="lblAddress">Adresa</span>
+            <span class="value" data-t="addressLine">Radnička 41, 34220 Lapovo (Varošica), Srbija</span>
           </div>
           <div class="info-item">
-            <span class="label">Posete</span>
-            <span class="value">Sreda do nedelje, 10h - 18h</span>
+            <span class="label" data-t="lblVisits">Posete</span>
+            <span class="value" data-t="visitHours">Sreda do nedelje, 10h - 18h</span>
           </div>
         </div>
 
         <form class="contact-form" action="#" method="post">
           <div>
-            <label for="ime">Ime i prezime</label>
-            <input type="text" id="ime" name="ime" placeholder="Kako se zoveš">
+            <label for="ime" data-t="formName">Ime i prezime</label>
+            <input type="text" id="ime" name="ime" placeholder="Kako se zoveš" data-t-ph="formNamePh">
           </div>
           <div>
-            <label for="kontakt-info">Telefon ili email</label>
-            <input type="text" id="kontakt-info" name="kontakt-info" placeholder="Gde da te kontaktiram">
+            <label for="kontakt-info" data-t="formContact">Telefon ili email</label>
+            <input type="text" id="kontakt-info" name="kontakt-info" placeholder="Gde da te kontaktiram" data-t-ph="formContactPh">
           </div>
           <div>
-            <label for="poruka">Poruka</label>
-            <textarea id="poruka" name="poruka" placeholder="Napiši šta te interesuje, mužjak ili ženka, i kad bi mogao da dođeš u posetu"></textarea>
+            <label for="poruka" data-t="formMsg">Poruka</label>
+            <textarea id="poruka" name="poruka" placeholder="Napiši šta te interesuje, mužjak ili ženka, i kad bi mogao da dođeš u posetu" data-t-ph="formMsgPh"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Pošalji upit</button>
+          <button type="submit" class="btn btn-primary" data-t="formSend">Pošalji upit</button>
         </form>
       </div>
     </div>
@@ -1455,23 +1494,23 @@
         </div>
 
         <div class="footer-col">
-          <span class="head">Adresa</span>
+          <span class="head" data-t="lblAddress">Adresa</span>
           <p>Von House Pikuša &middot; Ivan Jovanović</p>
-          <p>Radnička 41, 34220 Lapovo (Varošica), Srbija</p>
-          <p>Posete sredom do nedelje</p>
+          <p data-t="addressLine">Radnička 41, 34220 Lapovo (Varošica), Srbija</p>
+          <p data-t="footVisits">Posete sredom do nedelje</p>
         </div>
 
         <div class="footer-col">
-          <span class="head">Kontakt</span>
+          <span class="head" data-t="navContact">Kontakt</span>
           <a href="tel:+381612127354">061 212 7354</a>
           <a href="mailto:vonhousepikusa@gmail.com">vonhousepikusa@gmail.com</a>
         </div>
 
         <div class="footer-col">
-          <span class="head">Novosti o pometima</span>
+          <span class="head" data-t="footNews">Novosti o pometima</span>
           <form class="news-form" action="#" method="post">
             <label for="news-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email za novosti</label>
-            <input type="email" id="news-email" name="news-email" placeholder="Tvoj email">
+            <input type="email" id="news-email" name="news-email" placeholder="Tvoj email" data-t-ph="footNewsPh">
             <button type="submit" aria-label="Prijavi se na novosti">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
@@ -1480,8 +1519,8 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 Rottweiler Vonhouse, Lapovo</span>
-        <span>Kinološki savez Srbije</span>
+        <span data-t="footCopy">© 2026 Rottweiler Vonhouse, Lapovo</span>
+        <span data-t="footClub">Kinološki savez Srbije</span>
       </div>
     </div>
   </footer>
@@ -1492,6 +1531,139 @@
   </div>
 
   <script>
+    // ---- Jezik: srpski je upisan u HTML, engleski stoji ovde ----
+    var EN = {
+          "navAbout": "About us",
+          "navParents": "Parents",
+          "navPuppies": "Puppies",
+          "navProcess": "Process",
+          "navContact": "Contact",
+          "navCall": "Call us",
+          "heroKicker": "Kennel",
+          "heroSub": "We have been breeding rottweilers in Lapovo since 2015. Every puppy comes with a pedigree, screened hips and parents you can meet before you decide.",
+          "heroCta": "Reserve a puppy",
+          "aboutTitle": "About us",
+          "aboutEyebrow": "Ten years, one breed",
+          "aboutP1": "We started in 2015 with one female and one goal: to breed rottweilers the way they should be. Steady temperament, healthy hips, ready to guard the family without being afraid of the world.",
+          "aboutP2": "So far we have raised 12 litters. Every litter is registered with the Kennel Club of Serbia and every puppy leaves with a pedigree.",
+          "aboutP3": "The dogs live in the house, not in a kennel behind the yard. Puppies spend their first weeks surrounded by people, children and other dogs, so they know what normal life looks like before they go to a new home.",
+          "aboutMore": "Meet the parents",
+          "moreLink": "Find out more",
+          "stat1": "year founded",
+          "stat2": "litters raised",
+          "stat3": "puppies with papers",
+          "stat4": "breeding dogs at home",
+          "col1Title": "Hip and elbow screening",
+          "col1Text": "Both parents were examined by an orthopaedic vet before mating. You can see the HD and ED certificates in person when you visit.",
+          "col2Title": "Contract on purchase",
+          "col2Text": "We sign a contract with every buyer. It states what you get, when, and what I do if anything does not match the agreement.",
+          "col3Title": "Support after the purchase",
+          "col3Text": "Get in touch even a year later if you have a question about feeding, training or behaviour. I reply the same day.",
+          "parentsEyebrow": "Parents",
+          "parentsTitle": "The dogs you will meet in person",
+          "parentsSub": "Both parents live with us in the house. When you come to visit, you see exactly where the puppy you are planning to take comes from.",
+          "roleMale": "Male, born 2019",
+          "roleFemale": "Female, born 2020",
+          "factHeight": "height at withers",
+          "factWeight": "body weight",
+          "factHips": "hip status",
+          "factElbows": "elbow status",
+          "rexDesc": "German line, sired by Bruno von Stahl. Calm in the house, loud and decisive the moment he senses something is wrong at the gate.",
+          "emaDesc": "Patient with children, wary of strangers. Her puppies have been the fastest so far to pick up basic commands.",
+          "litterEyebrow": "Current litter",
+          "litterTitle": "Puppies available",
+          "litterSub": "A litter from Rex and Ema, born on 3 August. Six puppies, going to their new owners at 8 weeks of age.",
+          "litterName": "Litter R, August 2024",
+          "litterFact1": "4 males, 2 females",
+          "litterFact2": "First vaccination and microchipping on handover",
+          "litterFact3": "Kennel Club of Serbia pedigree",
+          "litterFact4": "Ready to go home from 28 September",
+          "litterCta": "Ask about a puppy",
+          "trainEyebrow": "Training and shows",
+          "trainTitle": "How our dogs work",
+          "trainSub": "The work does not stop when a puppy leaves the kennel. The parents train obedience regularly, and we compete at shows and working trials of the Kennel Club of Serbia.",
+          "videoNote": "Footage from a regular obedience training session",
+          "processTitle1": "How booking",
+          "processTitle2": "works:",
+          "step1Title": "You write or call",
+          "step1Text": "You tell me what you are looking for, male or female, and when a visit suits you.",
+          "step2Title": "You come to visit",
+          "step2Text": "You see the parents in person and the conditions the puppies live in.",
+          "step3Title": "You reserve a puppy",
+          "step3Text": "We agree on the deposit and the date the puppy goes with you.",
+          "step4Title": "You take the puppy home",
+          "step4Text": "With a pedigree, a microchip and the first vaccination in the health booklet.",
+          "contactEyebrow": "Contact",
+          "contactTitle": "Get in touch",
+          "contactSub": "Write, call or drop by for a coffee in Lapovo. I reply the same day.",
+          "lblKennel": "Kennel",
+          "lblPhone": "Phone",
+          "lblEmail": "Email",
+          "lblAddress": "Address",
+          "lblVisits": "Visits",
+          "addressLine": "Radnicka 41, 34220 Lapovo (Varosica), Serbia",
+          "visitHours": "Wednesday to Sunday, 10am - 6pm",
+          "formName": "Full name",
+          "formNamePh": "What is your name",
+          "formContact": "Phone or email",
+          "formContactPh": "How can I reach you",
+          "formMsg": "Message",
+          "formMsgPh": "Tell me what you are interested in, male or female, and when you could come to visit",
+          "formSend": "Send enquiry",
+          "footVisits": "Visits Wednesday to Sunday",
+          "footNews": "Litter updates",
+          "footNewsPh": "Your email",
+          "footCopy": "© 2026 Rottweiler Vonhouse, Lapovo",
+          "footClub": "Kennel Club of Serbia"
+    };
+
+    var SR = {};
+    var lang = 'sr';
+
+    function collectSr() {
+      document.querySelectorAll('[data-t]').forEach(function (el) {
+        var k = el.getAttribute('data-t');
+        if (SR[k] == null) SR[k] = el.textContent;
+      });
+      document.querySelectorAll('[data-t-ph]').forEach(function (el) {
+        var k = el.getAttribute('data-t-ph');
+        if (SR[k] == null) SR[k] = el.getAttribute('placeholder');
+      });
+    }
+
+    function setLang(l) {
+      var dict = l === 'en' ? EN : SR;
+      lang = l;
+      document.documentElement.lang = l;
+
+      document.querySelectorAll('[data-t]').forEach(function (el) {
+        var v = dict[el.getAttribute('data-t')];
+        if (v != null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-t-ph]').forEach(function (el) {
+        var v = dict[el.getAttribute('data-t-ph')];
+        if (v != null) el.setAttribute('placeholder', v);
+      });
+
+      document.querySelectorAll('[data-lang]').forEach(function (btn) {
+        btn.classList.toggle('on', btn.getAttribute('data-lang') === l);
+      });
+
+      // brojevi koji su vec odbrojani se ponovo ispisuju, jer sufiks zavisi od jezika
+      document.querySelectorAll('.stat-num[data-count]').forEach(function (el) {
+        if (el.getAttribute('data-done')) el.textContent = el.getAttribute('data-count') + statSuffix(el);
+      });
+
+      try { localStorage.setItem('vhp_lang', l); } catch (e) {}
+    }
+
+    function statSuffix(el) {
+      if (lang === 'en' && el.hasAttribute('data-suffix-en')) return el.getAttribute('data-suffix-en');
+      return el.getAttribute('data-suffix') || '';
+    }
+
+    collectSr();
+
     var hamburgerBtn = document.getElementById('hamburgerBtn');
     var navPanel = document.getElementById('navPanel');
 
@@ -1499,6 +1671,19 @@
       var isOpen = navPanel.classList.toggle('open');
       hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
+
+    document.querySelectorAll('[data-lang]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setLang(this.getAttribute('data-lang'));
+        navPanel.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    try {
+      if (localStorage.getItem('vhp_lang') === 'en') setLang('en');
+    } catch (e) {}
+
 
     // Dok fotografija ne postoji u assets/, ostaje sivi placeholder ispod nje.
     var shots = document.querySelectorAll('.ph img');
@@ -1527,7 +1712,7 @@
       if (el.getAttribute('data-done')) return;
       el.setAttribute('data-done', '1');
       var target = +el.getAttribute('data-count');
-      var suf = el.getAttribute('data-suffix') || '';
+      var suf = statSuffix(el);
       var dur = 1500;
       var t0 = null;
       function step(ts) {
